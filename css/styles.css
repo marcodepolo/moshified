@@ -72,3 +72,35 @@ a {
     font-size: 1.5rem;
   }
 }
+
+/* badges */
+/* structure */
+.badge {
+  border-radius: 20px;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.5rem 2rem;
+  white-space: nowrap;
+}
+/* skin */
+/* bem convention use -- for modifiers */
+.badge--primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.badge--secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}
+.badge--small {
+  font-size: 1.6rem;
+}
+@media screen and (min-width: 1024px) {
+  .badge {
+    font-size: 1.5rem;
+  }
+  .badge--small {
+    font-size: 1.2rem;
+  }
+}
