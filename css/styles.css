@@ -5,6 +5,7 @@
   --headings-color: #1b0760;
   --body-color: #918ca4;
 }
+/** typography */
 html {
   font-size: 62.5%; /* 62.5% of 16px = 10px = 1rem */
 }
@@ -45,5 +46,29 @@ p {
   }
   h3 {
     font-size: 2.4rem;
+  }
+}
+
+/** links */
+a {
+  text-decoration: none;
+}
+.link-arrow {
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: bold;
+}
+.link-arrow::after {
+  content: "-->";
+  margin-left: 5px;
+  transition: margin 0.15s;
+}
+.link-arrow:hover::after {
+  margin-left: 10px;
+}
+@media screen and (min-width: 1024px) {
+  .link-arrow {
+    font-size: 1.5rem;
   }
 }
