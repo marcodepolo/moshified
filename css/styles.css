@@ -521,3 +521,44 @@ input {
   max-height: 100vh;
   opacity: 1;
 }
+
+/* blocks */
+.block {
+  /* define a variable accessible to all elts with .block and their children */
+  --padding-vertical: 6rem;
+  padding: var(--padding-vertical) 2rem;
+}
+
+.block__title {
+  margin-top: 0;
+}
+.block__header {
+  text-align: center;
+}
+.block--dark {
+  background-color: black;
+  color: #7b858b;
+}
+.block--dark .block__title {
+  color: white;
+}
+
+.block--skewed-right {
+  /* ensure text doesnt come inside the skewed part 
+  use a var defined in .block */
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+}
+.block--skewed-left {
+  /* ensure text doesnt come inside the skewed part */
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+}
+
+/* set the max width of the content for wide screens 
+for dark blocks set the container class on a wrapper as we want to constraint the content
+but want the color to cover all the width*/
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
