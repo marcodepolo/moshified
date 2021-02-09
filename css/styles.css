@@ -486,3 +486,38 @@ input {
     margin: 0 2rem;
   }
 }
+
+/* collapsible */
+.collapsible__header {
+  display: flex;
+  /* push the items to the edges of the container */
+  justify-content: space-between;
+}
+.collapsible__heading {
+  margin-top: 0;
+  font-size: 3rem;
+}
+.collapsible__chevron {
+  transform: rotate(-90deg);
+  transition: transform 0.5s;
+}
+.collapsible__content {
+  /* play on height to allow animation transition */
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  /* animate ALL properties (max-height and opacity) */
+  transition: all 0.5s;
+}
+
+.collapsible--expanded .collapsible__chevron {
+  transform: rotate(0);
+}
+.collapsible--expanded .collapsible__content {
+  /* allow to stretch to 100% of the viewport but its only going to stretch to the size
+  of the content because we use max-height.
+  is using height then the content area would take the entire viewport.
+  unset work fine */
+  max-height: 100vh;
+  opacity: 1;
+}
