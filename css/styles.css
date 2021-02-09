@@ -5,6 +5,7 @@
   --headings-color: #1b0760;
   --body-color: #918ca4;
   --border-color: #ccc;
+  --dark-body-color: #5c5577;
 
   --border-radius: 30px;
 }
@@ -346,4 +347,48 @@ input {
 }
 .media__image {
   margin-top: 1rem;
+}
+
+/* quotes */
+.quote {
+  font-size: 3rem;
+  color: var(--dark-body-color);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.quote__body::before {
+  /* pre defined value make sure we have opening version */
+  content: open-quote;
+}
+.quote__body::after {
+  /* pre defined value make sure we have closing version */
+  content: close-quote;
+}
+.quote__author {
+  font-size: 3rem;
+  font-weight: 500;
+  font-style: normal;
+  margin-bottom: 0;
+}
+.quote__org {
+  font-size: 2rem;
+  font-style: normal;
+  color: var(--headings-color);
+  opacity: 0.4;
+}
+.quote__line {
+  position: relative;
+  bottom: 1rem;
+}
+@media screen and (min-width: 1024px) {
+  .quote {
+    font-size: 2rem;
+  }
+  .quote__author {
+    font-size: 2.4rem;
+  }
+  .quote_org {
+    font-size: 1.6rem;
+  }
 }
