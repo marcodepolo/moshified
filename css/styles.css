@@ -304,7 +304,21 @@ input {
 .plan .list__item {
   margin-bottom: 2rem;
 }
-
+.plan--popular .card__header {
+  /* set to relative so we can set the image to absolute */
+  position: relative;
+}
+.plan--popular .card__header::before {
+  content: url("../images/popular.svg");
+  width: 40px;
+  /* inline-block so the width is applied */
+  display: inline-block;
+  /* set to absolute so we can move freely the image
+  this means the parent must be set to relative */
+  position: absolute;
+  top: -6px;
+  right: 5%;
+}
 @media screen and (min-width: 1024px) {
   .plan__name {
     font-size: 1.4rem;
