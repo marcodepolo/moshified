@@ -392,3 +392,20 @@ input {
     font-size: 1.6rem;
   }
 }
+
+/* grids */
+.grid {
+  display: grid;
+}
+/* for tablets and up we want 2 cols */
+@media screen and (min-width: 768px) {
+  .grid--1x2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* for wide screens and up we want 3 cols */
+@media screen and (min-width: 1024px) {
+  .grid--1x3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
