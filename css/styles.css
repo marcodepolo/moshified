@@ -4,6 +4,9 @@
   --accent-color: #ff3400;
   --headings-color: #1b0760;
   --body-color: #918ca4;
+  --border-color: #ccc;
+
+  --border-radius: 30px;
 }
 *,
 *::before,
@@ -210,6 +213,40 @@ a {
 }
 @media screen and (min-width: 1024px) {
   .btn {
+    font-size: 1.5rem;
+  }
+}
+
+/* inputs */
+input {
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  color: var(--headings-color);
+  outline: none;
+  padding: 1.5rem 3.5rem;
+}
+::placeholder {
+  font-size: 2rem;
+  color: #cdcbd7;
+}
+.input-group {
+  border: 1px solid var(--border-color);
+  box-shadow: 5px 5px lightblue;
+  border-radius: var(--border-radius);
+  /* use flex to push button to the right  */
+  display: flex;
+}
+.input-group input {
+  border: 0;
+  /* push button by growing input field */
+  flex-grow: 1;
+  padding: 1.5rem 1rem;
+}
+.input-group .btn {
+  margin: 4px;
+}
+@media screen and (min-width: 1024px) {
+  input {
     font-size: 1.5rem;
   }
 }
