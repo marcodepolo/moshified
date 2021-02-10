@@ -183,9 +183,16 @@ a {
   font-size: 1.8rem;
   font-weight: 600;
   margin: 1rem 0;
+  outline: 0;
   padding: 2rem 3rem;
   text-transform: uppercase;
   white-space: nowrap;
+}
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  vertical-align: middle;
 }
 .btn--outline {
   background-color: transparent;
@@ -256,7 +263,7 @@ input {
   border: 0;
   /* push button by growing input field */
   flex-grow: 1;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 2rem;
 }
 .input-group .btn {
   margin: 4px;
@@ -646,5 +653,35 @@ not sure why the nav__prefix of the nested elt isnt enough */
   .hero__content {
     text-align: left;
     align-self: center;
+  }
+}
+
+/* domains block */
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0;
+  margin: 4rem auto;
+  max-width: 670px;
+}
+
+.block-domain__prices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* use rem as we need to adjust to content vertically  */
+  grid-template-rows: repeat(2, 6rem);
+  font-size: 2rem;
+  font-weight: 600;
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .block-domain__prices {
+    /* setting column numbers to autofit so prices display on 1 line on large screens
+    and design will adjust it more than 6 prices */
+    /* use minmax to set a range of width for columns, here min width to 100px and auto enlarge */
+    /* @marco using flex would probably be just fine but I guess mosh wanted to show this */
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
 }
