@@ -9,6 +9,10 @@
 
   --border-radius: 30px;
 }
+::selection {
+  background: var(--primary-color);
+  color: white;
+}
 *,
 *::before,
 *::after {
@@ -56,6 +60,7 @@ p {
   }
   h3 {
     font-size: 2.4rem;
+    font-weight: 500;
   }
 }
 
@@ -120,7 +125,6 @@ a {
 .list {
   list-style: none;
   padding-left: 0;
-  color: var(--headings-color);
 }
 
 .list--inline .list__item {
@@ -132,6 +136,7 @@ a {
   list-style-image: url("../images/tick.svg");
   /* make sure icon are on the screen */
   padding-left: 3rem;
+  color: var(--headings-color);
 }
 
 .list--tick .list__item {
@@ -366,6 +371,7 @@ input {
 /* medias */
 .media {
   display: flex;
+  margin-bottom: 4rem;
 }
 .media__title {
   margin-top: 0;
@@ -554,8 +560,13 @@ input {
   background-color: black;
   color: #7b858b;
 }
+/* use h1-h3 as we always going to have a heading in a block
+ also like this we dont need to add the block__heading class */
 .block--dark .block__title,
-.block--dark .block__heading {
+.block--dark .media__title,
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: white;
 }
 
@@ -563,12 +574,12 @@ input {
   /* ensure text doesnt come inside the skewed part 
   use a var defined in .block */
   padding-bottom: calc(var(--padding-vertical) + 4rem);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 90%);
 }
 .block--skewed-left {
   /* ensure text doesnt come inside the skewed part */
   padding-bottom: calc(var(--padding-vertical) + 4rem);
-  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
 /* set the max width of the content for wide screens 
@@ -641,9 +652,6 @@ not sure why the nav__prefix of the nested elt isnt enough */
 }
 
 /* hero */
-.hero {
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-}
 .hero__tagline {
   font-size: 2rem;
   color: #b9c3cf;
@@ -731,5 +739,30 @@ not sure why the nav__prefix of the nested elt isnt enough */
   /* really cool stuff! alternate picture and content position for each feature */
   .feature:nth-of-type(even) .feature__content {
     order: 2;
+  }
+}
+
+/* showcase blocvk */
+.block-showcase .grid {
+  gap: 4rem;
+}
+.block-showcase__image img {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .block-showcase .grid {
+    /* 
+    %  relative to the container
+    fr : relative to the content */
+    grid-template-columns: 50% 50%;
+    /* justify-items: end; */
+  }
+  /* make the image non responsive to create left overflow on wider screens */
+  .block-showcase__image {
+    justify-self: end;
+  }
+  .block-showcase__image img {
+    width: auto;
+    max-width: 700px;
   }
 }
