@@ -295,6 +295,9 @@ input {
   background: var(--secondary-color);
   color: white;
 }
+.card--primary .badge--primary {
+  background-color: #126de4;
+}
 .card--secondary .badge--secondary {
   background-color: #02cdf1;
 }
@@ -325,6 +328,10 @@ input {
 
 .plan .list__item {
   margin-bottom: 2rem;
+}
+/* scale up all popular plans across the site */
+.plan--popular {
+  transform: scale(1.05);
 }
 .plan--popular .card__header {
   /* set to relative so we can set the image to absolute */
@@ -684,4 +691,26 @@ not sure why the nav__prefix of the nested elt isnt enough */
     /* @marco using flex would probably be just fine but I guess mosh wanted to show this */
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
   }
+}
+
+/* plans block */
+/* bigger gap for cols to avoid shadown overlap to next plan on small screens */
+.block-plans .grid {
+  gap: 8rem 4rem;
+}
+/* avoid wide cards on tablets */
+.block-plans .card {
+  max-width: 500px;
+  margin: 0 auto;
+}
+.block-plans .plan:hover {
+  transform: scale(1.05);
+}
+.block-plans .plan--popular:hover {
+  transform: scale(1.15);
+}
+.plan {
+  transition: transform 0.3s ease-out;
+}
+@media screen and (min-width: 1024px) {
 }
