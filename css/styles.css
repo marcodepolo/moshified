@@ -513,6 +513,7 @@ input {
   display: flex;
   /* push the items to the edges of the container */
   justify-content: space-between;
+  cursor: pointer;
 }
 .collapsible__heading {
   margin-top: 0;
@@ -765,5 +766,67 @@ not sure why the nav__prefix of the nested elt isnt enough */
   .block-showcase__image img {
     width: auto;
     max-width: 700px;
+  }
+}
+
+/* footer nav */
+.footer {
+  background: #232323;
+}
+.footer__section {
+  padding: 2rem;
+  border: 1px solid #393939;
+}
+.footer__heading {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.footer__brand {
+  text-align: center;
+  margin-top: 5rem;
+}
+.footer__copyright {
+  font-size: 2.1rem;
+  color: white;
+  opacity: 0.3;
+}
+@media screen and (min-width: 768px) {
+  /* use a specific class in case we add other grids later */
+  .footer__sections {
+    /* anticipate future columns with autofit and minmax */
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+  .footer .collapsible__chevron {
+    display: none;
+  }
+  .footer .collapsible__content {
+    max-height: 100%;
+    opacity: 1;
+  }
+  .footer__section {
+    border: 0;
+  }
+  .footer__section .list {
+    margin: 0;
+  }
+  .footer .nav__item {
+    padding-left: 0;
+    font-size: 1.4rem;
+  }
+  .footer__heading {
+    font-size: 1.6rem;
+  }
+  .footer__brand {
+    margin-top: 1rem;
+    margin-right: 20px;
+    /* use -1 to move in first position! */
+    order: -1;
+  }
+  .footer__brand img {
+    /* TODO: consider refactor and apply this to all images */
+    width: 100%;
+  }
+  .footer__copyright {
+    font-size: 1.5rem;
   }
 }
