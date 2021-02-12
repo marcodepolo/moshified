@@ -189,7 +189,7 @@ a {
   font-weight: 600;
   margin: 1rem 0;
   outline: 0;
-  padding: 2rem 3rem;
+  padding: 2rem 4vw;
   text-transform: uppercase;
   white-space: nowrap;
 }
@@ -268,7 +268,13 @@ input {
   border: 0;
   /* push button by growing input field */
   flex-grow: 1;
-  padding: 1.5rem 2rem;
+  /* use 4vh for horizontal padding to have less padding on small mobile
+  this allow to see enough chars in the input field */
+  padding: 1.5rem 4vw;
+  /* fix layout issue on small mobile
+  if we dont set the width, the browser can grow it bigger than its container
+  if we set it to 0 and rely exclusively on flex-grow the problem is gone  */
+  width: 0;
 }
 .input-group .btn {
   margin: 4px;
@@ -682,8 +688,9 @@ not sure why the nav__prefix of the nested elt isnt enough */
 }
 
 .block-domain__prices {
+  color: var(--headings-color);
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   /* use rem as we need to adjust to content vertically  */
   grid-template-rows: repeat(2, 6rem);
   font-size: 2rem;
@@ -700,6 +707,8 @@ not sure why the nav__prefix of the nested elt isnt enough */
     /* use minmax to set a range of width for columns, here min width to 100px and auto enlarge */
     /* @marco using flex would probably be just fine but I guess mosh wanted to show this */
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    /* only one row on large screens */
+    grid-template-rows: 6rem;
   }
 }
 
